@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <graphItem></graphItem>
-    <graphItem></graphItem>
-    <graphItem></graphItem>
-    <graphItem></graphItem>
-    <graphItem></graphItem>
+    <graphItem :chartData="lineChartData"></graphItem>
+    <graphItem :chartData="lineChartData"></graphItem>
+    <graphItem :chartData="lineChartData"></graphItem>
+    <graphItem :chartData="lineChartData"></graphItem>
+    <graphItem :chartData="lineChartData"></graphItem>
   </div>
 </template>
 
@@ -12,7 +12,27 @@
 import graphItem from '@/components/graph-item'
 export default {
   name: 'LeftMain',
-  components: { graphItem }
+  components: { graphItem },
+  data() {
+    return {
+      lineChartData: {
+        xAxis: {
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            type: 'line',
+            smooth: true
+          }
+        ]
+      }
+    }
+  }
 }
 </script>
 
